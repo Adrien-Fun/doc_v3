@@ -3,13 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Documentation_technique_FUN-MOOC's documentation!
-============================================================
+Documentation technique Interne FUN MOOC
+========================================
 
-Contents:
+Version: |version|
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
+   :glob:
+   
+   templates/*
 
 
 
@@ -17,6 +20,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
-
