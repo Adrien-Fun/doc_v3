@@ -7,12 +7,12 @@ Build l'image
 
 La construction de l'image se fait depuis le jenkins
 
-1/ Se connecter en ssh sur le serveur : ssh bastion_dev -L8089:192.168.10.24:80
-2/ Aller sur l'adresse : http://127.0.0.1:8089/
-3/ Cliquer sur "fun-build-image"
-4/ Cliquer sur "lancer un build avec des paramètres" ou "Rebuild Last"
-5/ Une fois le build fini, appler dans l'oglet racine "fun-deploy-preprod"
-6/ Cliquer sur "lancer un build avec des paramètres" et indiquer le numéro de l'image exemple : 4.9.6_60
+- Se connecter en ssh sur le serveur : ssh bastion_dev -L8089:192.168.10.24:80
+- Aller sur l'adresse : http://127.0.0.1:8089/
+- Cliquer sur "fun-build-image"
+- Cliquer sur "lancer un build avec des paramètres" ou "Rebuild Last"
+- Une fois le build fini, appler dans l'oglet racine "fun-deploy-preprod"
+- Cliquer sur "lancer un build avec des paramètres" et indiquer le numéro de l'image exemple : 4.9.6_60
 
 Methode Live
 ------------

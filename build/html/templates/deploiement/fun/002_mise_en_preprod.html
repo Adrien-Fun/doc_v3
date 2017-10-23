@@ -104,6 +104,14 @@
 <div class="section" id="build-l-image">
 <h2>Build l&#8217;image<a class="headerlink" href="#build-l-image" title="Lien permanent vers ce titre">¶</a></h2>
 <p>La construction de l&#8217;image se fait depuis le jenkins</p>
+<ul class="simple">
+<li>Se connecter en ssh sur le serveur : ssh bastion_dev -L8089:192.168.10.24:80</li>
+<li>Aller sur l&#8217;adresse : <a class="reference external" href="http://127.0.0.1:8089/">http://127.0.0.1:8089/</a></li>
+<li>Cliquer sur &#8220;fun-build-image&#8221;</li>
+<li>Cliquer sur &#8220;lancer un build avec des paramètres&#8221; ou &#8220;Rebuild Last&#8221;</li>
+<li>Une fois le build fini, appler dans l&#8217;oglet racine &#8220;fun-deploy-preprod&#8221;</li>
+<li>Cliquer sur &#8220;lancer un build avec des paramètres&#8221; et indiquer le numéro de l&#8217;image exemple : 4.9.6_60</li>
+</ul>
 </div>
 <div class="section" id="methode-live">
 <h2>Methode Live<a class="headerlink" href="#methode-live" title="Lien permanent vers ce titre">¶</a></h2>

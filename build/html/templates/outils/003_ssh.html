@@ -55,6 +55,19 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Ssh</a><ul>
+<li><a class="reference internal" href="#prerequis">Prérequis</a></li>
+<li><a class="reference internal" href="#a-faire">À faire</a></li>
+<li><a class="reference internal" href="#astuces-sur-utilisees-chez-fun">Astuces sur utilisées chez fun</a><ul>
+<li><a class="reference internal" href="#le-rebond-selectif">le rebond sélectif</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Sujet précédent</h4>
   <p class="topless"><a href="002_slack.html"
                         title="Chapitre précédent">Slack</a></p>
@@ -91,6 +104,48 @@
             
   <div class="section" id="ssh">
 <h1>Ssh<a class="headerlink" href="#ssh" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="prerequis">
+<h2>Prérequis<a class="headerlink" href="#prerequis" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avoir une paire de clé ssh générée à moins que vous soyez experts
+avec les valeurs par défaut.</p>
+</div>
+<div class="section" id="a-faire">
+<h2>À faire<a class="headerlink" href="#a-faire" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>demander à faire déployer la clé ssh sur le bastion d&#8217;abord par un dev</li>
+<li>ensuite par objectif libre</li>
+</ul>
+<p>Pour le bastion votre configuaration ssh est sommairemment:</p>
+<div class="highlight-python"><div class="highlight"><pre>Host bastion_dev
+    User cloud
+    hostname 84.39.43.50
+    IdentityFile  ~/.ssh/workid.pub ### mettez VOTRE clé ici pas la mienne
+    SendEnv OS_*
+</pre></div>
+</div>
+</div>
+<div class="section" id="astuces-sur-utilisees-chez-fun">
+<h2>Astuces sur utilisées chez fun<a class="headerlink" href="#astuces-sur-utilisees-chez-fun" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li>Forwarding de port (à traiter)</li>
+</ul>
+<div class="section" id="le-rebond-selectif">
+<h3>le rebond sélectif<a class="headerlink" href="#le-rebond-selectif" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour certaines adresses avec des jokers on peut forcer le rebond par une gateway</p>
+<p>exemple pris de <strong>~/.ssh/config</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Host 192.168.10.*
+    User cloud
+    Port 22
+    ProxyCommand ssh bastion_dev -W %h:%p
+
+Host 192.168.20.*
+    User cloud
+    Port 22
+    ProxyCommand ssh bastion_dev -W %h:%p
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
