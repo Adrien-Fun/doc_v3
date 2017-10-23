@@ -9,7 +9,7 @@ Documentation technique Interne FUN MOOC
 Version: |version|
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :glob:
    
    templates/*

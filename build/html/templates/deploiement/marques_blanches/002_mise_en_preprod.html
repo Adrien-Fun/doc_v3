@@ -1,0 +1,175 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mise en préprod des MB &mdash; documentation Documentation_technique_FUN-MOOC 3.0</title>
+    
+    <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
+    <link rel="top" title="documentation Documentation_technique_FUN-MOOC 3.0" href="../../../index.html" />
+    <link rel="up" title="Marques blanches" href="../marques_blanches.html" />
+    <link rel="prev" title="Mise en production des MB" href="001_mise_en_production.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="001_mise_en_production.html" title="Mise en production des MB"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentation Documentation_technique_FUN-MOOC 3.0</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../002_deploiement.html" >Le déploiement</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../marques_blanches.html" accesskey="U">Marques blanches</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mise en préprod des MB</a><ul>
+<li><a class="reference internal" href="#mettre-a-jour-les-pages-statiques-et-autres-actions-sur-le-theme">Mettre à jour les pages statiques et autres actions sur le thème.</a></li>
+<li><a class="reference internal" href="#jenkins">Jenkins</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="001_mise_en_production.html"
+                        title="Chapitre précédent">Mise en production des MB</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/templates/deploiement/marques_blanches/002_mise_en_preprod.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mise-en-preprod-des-mb">
+<h1>Mise en préprod des MB<a class="headerlink" href="#mise-en-preprod-des-mb" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Le déploiement se fait sur les infras <strong>objectif libre</strong> avec jenkins</p>
+<div class="section" id="mettre-a-jour-les-pages-statiques-et-autres-actions-sur-le-theme">
+<h2>Mettre à jour les pages statiques et autres actions sur le thème.<a class="headerlink" href="#mettre-a-jour-les-pages-statiques-et-autres-actions-sur-le-theme" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour modifier une page statique il faut:</p>
+<blockquote>
+<div><p>o La localiser dans le répertoire lms/static/template.</p>
+<p>o La modifier</p>
+<p>o L&#8217;essayer sur le serveur local</p>
+</div></blockquote>
+<p>Exemple avec CNFPT :</p>
+<a class="reference internal image-reference" href="../../../_images/archi_cnfpt.png"><img alt="../../../_images/archi_cnfpt.png" src="../../../_images/archi_cnfpt.png" style="width: 50%;" /></a>
+<p>Pour ajouter une page statique (qui n&#8217;existe pas), il faut:</p>
+<blockquote>
+<div><p>o Créer une entrée de cette page dans la configuration du serveur :</p>
+<blockquote>
+<div><p>On y accède par rebond à travers ssh :</p>
+<div class="highlight-python"><div class="highlight"><pre>ssh bastion_dev -L8090:192.168.10.24:8081
+</pre></div>
+</div>
+<p>Puis ajouter dans le champs &#8220;LMS python/django extra options&#8221; (exemple pour CNFPT) :</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">MKTG_URL_LINK_MAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">u&#39;ABOUT&#39;</span><span class="p">:</span> <span class="s1">u&#39;about&#39;</span><span class="p">,</span>
+    <span class="s1">u&#39;POLITIQUE&#39;</span><span class="p">:</span> <span class="s1">u&#39;politique&#39;</span><span class="p">,</span>
+    <span class="s1">u&#39;CHARTE&#39;</span><span class="p">:</span> <span class="s1">u&#39;charte&#39;</span><span class="p">,</span>
+    <span class="s1">u&#39;HONOR&#39;</span><span class="p">:</span> <span class="s1">u&#39;honor&#39;</span><span class="p">,</span>
+    <span class="s1">u&#39;LEGAL&#39;</span><span class="p">:</span> <span class="s1">u&#39;legal&#39;</span><span class="p">,</span>
+    <span class="s1">u&#39;CONTACT&#39;</span><span class="p">:</span> <span class="s1">u&#39;contact&#39;</span><span class="p">,</span>
+    <span class="s1">u&#39;ROOT&#39;</span><span class="p">:</span> <span class="s1">u&#39;root&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>o Ensuite il faut modifier le fichier footer.html pour ajouter un lien vers cette page</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../../_images/links_html_cnfpt.png"><img alt="../../../_images/links_html_cnfpt.png" src="../../../_images/links_html_cnfpt.png" style="width: 50%;" /></a>
+</div></blockquote>
+<p>o Ne pas oublier de faire un commit sur le repository contenant le thème</p>
+</div></blockquote>
+</div>
+<div class="section" id="jenkins">
+<h2>Jenkins<a class="headerlink" href="#jenkins" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Jenkins permet de faire le build de la marque blanche en plusieurs étapes</p>
+<p>On y accède par rebond à travers ssh:</p>
+<div class="highlight-python"><div class="highlight"><pre>ssh bastion_dev -L8089:192.168.10.24:80
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/jenkins_marque_blanche.png"><img alt="../../../_images/jenkins_marque_blanche.png" src="../../../_images/jenkins_marque_blanche.png" style="width: 100%;" /></a>
+<p>build-image-edxapp-preprod : refait un build global si on change la version de edx-platform</p>
+<p>build-all-images-for-mb-preprod-fun: permet de builder une nouvelle image si on a changé le thème</p>
+<p>Dans tous les cas il faut mettre à jour les serveur, la tâche update-mb-preprod sert à cela</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="Index général"
+             >index</a></li>
+        <li class="right" >
+          <a href="001_mise_en_production.html" title="Mise en production des MB"
+             >précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentation Documentation_technique_FUN-MOOC 3.0</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../002_deploiement.html" >Le déploiement</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../marques_blanches.html" >Marques blanches</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, fun-dev.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>
