@@ -11,7 +11,7 @@ La construction de l'image se fait depuis le jenkins
 - Aller sur l'adresse : http://127.0.0.1:8089/
 - Cliquer sur "fun-build-image"
 - Cliquer sur "lancer un build avec des paramètres" ou "Rebuild Last"
-- Une fois le build fini, appler dans l'oglet racine "fun-deploy-preprod"
+- Une fois le build fini, aller dans l'oglet racine "fun-deploy-preprod"
 - Cliquer sur "lancer un build avec des paramètres" et indiquer le numéro de l'image exemple : 4.9.6_60
 
 Methode Live
