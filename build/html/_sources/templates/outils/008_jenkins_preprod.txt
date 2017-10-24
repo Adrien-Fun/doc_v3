@@ -1,8 +1,0 @@
-Jenkins Preprod
-===============
-
-Description
-***********
-
-Prérequis
-*********

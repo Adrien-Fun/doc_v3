@@ -7,7 +7,6 @@ https://fun.plan.io
 
 Description
 ***********
-
 Interface utilisateur qui permet de créer des tickets et de les assigner.
 
 
