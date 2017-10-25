@@ -1,0 +1,107 @@
+{#
+    bizstyle/layout.html
+    ~~~~~~~~~~~~~~~~~~~~
+
+    Sphinx layout template for the bizstyle theme.
+
+    :copyright: Copyright 2011-2014 by Sphinx team, see AUTHORS.
+    :license: BSD, see LICENSE for details.
+#}
+{% extends "basic/layout.html" %}
+
+{% set script_files = script_files + ["_static/bizstyle.js"] %}
+
+{# put the sidebar before the body #}
+{% block sidebar2 %}
+    {%- if render_sidebar %}
+      <div class="menu" role="navigation" aria-label="main navigation">
+        <div class="menu-wrapper">
+            {%- block sidebarlogo %}
+            {%- if logo %}
+                <a class="logo" href="{{ pathto(master_doc) }}"><img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/></a>
+            {%- endif %}
+            {%- endblock %}
+            <div class="content-outils">
+                <a class="nav-link outils" href="{{ pathto('templates/001_outils') }}">Les outils</a>
+                <ul class="list-outils">
+                    <li><a href="{{ pathto('templates/outils/001_gitlab') }}">Gitlab</a></li>
+                    <li><a href="{{ pathto('templates/outils/002_slack') }}">Slack</a></li>
+                    <li><a href="{{ pathto('templates/outils/003_ssh') }}">SSH</a></li>
+                    <li><a href="{{ pathto('templates/outils/004_planio') }}">Planio</a></li>
+                    <li><a href="{{ pathto('templates/outils/005_glpi') }}">GLPI</a></li>
+                    <li><a href="{{ pathto('templates/outils/006_sentry') }}">Sentry</a></li>
+                    <li><a href="{{ pathto('templates/outils/007_rancheros') }}">RancherOS</a></li>
+                    <li><a href="{{ pathto('templates/outils/008_jenkins') }}">Jenkins</a></li>
+                    <li><a href="{{ pathto('templates/outils/009_documentation') }}">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="content-deploiement">
+                <a class="nav-link deploiement" href="{{ pathto('templates/002_deploiement') }}">Le déploiement</a>
+                <ul class="list-deploiement">
+                    <li><a href="{{ pathto('templates/deploiement/fun') }}">Fun</a></li>
+                    <li><a href="{{ pathto('templates/deploiement/marques_blanches') }}">Marques Blanches</a></li>
+                </ul>
+            </div>
+            <div class="content-informations">
+                <a class="nav-link informations" href="{{ pathto('templates/003_informations') }}">Informations</a>
+                <ul class="list-informations">
+                    <li><a href="{{ pathto('templates/informations/001_openedx') }}">Open EDX</a></li>
+                    <li><a href="{{ pathto('templates/informations/002_objectif_libre') }}">Objectif Libre</a></li>
+                    <li><a href="{{ pathto('templates/informations/003_fun_apps') }}">Fun Apps</a></li>
+                </ul>
+            </div>
+            <div class="content-cle">
+                <a class="nav-link cle" href="{{ pathto('templates/010_cle') }}">Clés publiques</a>
+            </div>
+        </div>
+        {%- block sidebarsearch %}
+            {%- include "searchbox.html" %}
+        {%- endblock %}
+      </div>
+    {%- endif %}
+{% endblock %}
+{% block sidebar1 %}
+{%- if render_sidebar %}
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+          {%- if sidebars != None %}
+            {#- new style sidebar: explicitly include/exclude templates #}
+            {%- for sidebartemplate in sidebars %}
+            {%- include sidebartemplate %}
+            {%- endfor %}
+          {%- else %}
+            {#- old style sidebars: using blocks -- should be deprecated #}
+            {%- block sidebartoc %}
+            {%- include "localtoc.html" %}
+            {%- endblock %}
+            {%- block sidebarrel %}
+            {%- include "relations.html" %}
+            {%- endblock %}
+            {%- block sidebarsourcelink %}
+            {%- include "sourcelink.html" %}
+            {%- endblock %}
+            {%- if customsidebar %}
+            {%- include customsidebar %}
+            {%- endif %}
+          {%- endif %}
+        </div>
+      </div>
+{%- endif %}
+{% endblock %}
+{% block sidebar3 %}{% endblock %}
+
+{# doctype override #}
+{%- block doctype %}
+<!doctype html>
+{%- endblock %}
+
+{%- block extrahead %}
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+{%- endblock %}
+
+{# relbar2 override #}
+{%- block relbar2 %}
+{%- endblock %}
