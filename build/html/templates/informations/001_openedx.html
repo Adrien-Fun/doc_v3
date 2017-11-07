@@ -1,0 +1,178 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Open EDX &#8212; documentation Documentation_technique_FUN-MOOC 3.0</title>
+    <link rel="stylesheet" href="../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Objectif Libre" href="002_objectif_libre.html" />
+    <link rel="prev" title="Informations" href="../003_informations.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="002_objectif_libre.html" title="Objectif Libre"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="../003_informations.html" title="Informations"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentation Documentation_technique_FUN-MOOC 3.0</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../003_informations.html" accesskey="U">Informations</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Open EDX</a><ul>
+<li><a class="reference internal" href="#xblock">XBlock</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="../003_informations.html"
+                        title="Chapitre précédent">Informations</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="002_objectif_libre.html"
+                        title="Chapitre suivant">Objectif Libre</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/templates/informations/001_openedx.rst.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="open-edx">
+<h1>Open EDX<a class="headerlink" href="#open-edx" title="Lien permanent vers ce titre">¶</a></h1>
+<p><a class="reference external" href="http://edx.readthedocs.io/projects/edx-guide-for-students/en/latest/">Documentation Open EDX</a></p>
+<p>Open EDX est une solution open source développé par Edx.</p>
+<p>Elle permet de créer une plateforme de MOOC / COOC et d’implémenter ses propres fonctionnalités grâce aux XBlock.</p>
+<p>Edx met régulièrement à jour sa solution. Il est donc indispensable de faire des monté de version pour chaque nouvelle mise à jour.</p>
+<p>La version actuelle d’Open EDX est la gingko.1.</p>
+<div class="section" id="xblock">
+<h2>XBlock<a class="headerlink" href="#xblock" title="Lien permanent vers ce titre">¶</a></h2>
+<p><a class="reference external" href="http://edx.readthedocs.io/projects/xblock-tutorial/en/latest/index.html">Documentation Xblock</a></p>
+<p>Xblock est le composant d’architecture pricipal d’EDX pour personaliser la plateforme.</p>
+<p>il s’agit un template.</p>
+<p>Architecture exemple de fun_glowbl :</p>
+<img alt="../../_images/xblock_example.png" src="../../_images/xblock_example.png" />
+<p>Dans le fichier python pilote :</p>
+<ul class="simple">
+<li>lti : sert à l’autentification au sein des xblocks</li>
+<li>Cette classe permet de changer les champs éditable du cour.</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@XBlock</span><span class="o">.</span><span class="n">needs</span><span class="p">(</span><span class="s1">&#39;i18n&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">FUNGlowblXBlock</span><span class="p">(</span><span class="n">LtiConsumerXBlock</span><span class="p">,</span> <span class="n">StudioEditableXBlockMixin</span><span class="p">,</span> <span class="n">XBlock</span><span class="p">):</span>
+
+    <span class="n">editable_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;rendezvous&#39;</span><span class="p">,</span> <span class="s1">&#39;custom_course_type&#39;</span><span class="p">,</span> <span class="s1">&#39;max_user&#39;</span><span class="p">]</span>
+
+    <span class="n">title</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="n">Scope</span><span class="o">.</span><span class="n">settings</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">display_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Glowbl Live Event title&quot;</span><span class="p">),</span>
+        <span class="n">help</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Enter the title of the event.&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Le champ editable_fields indique les valeurs éditable.</p>
+<p>title est un exemple de champ.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="menu" role="navigation" aria-label="main navigation">
+        <div class="menu-wrapper">
+                <a class="logo" href="../../index.html"><img class="logo" src="../../_static/logo.png" alt="Logo"/></a>
+            <div class="content-outils">
+                <a class="nav-link outils" href="../001_outils.html">Les outils</a>
+                <ul class="list-outils">
+                    <li><a href="../outils/001_gitlab.html">Gitlab</a></li>
+                    <li><a href="../outils/002_slack.html">Slack</a></li>
+                    <li><a href="../outils/003_ssh.html">SSH</a></li>
+                    <li><a href="../outils/004_planio.html">Planio</a></li>
+                    <li><a href="../outils/005_glpi.html">GLPI</a></li>
+                    <li><a href="../outils/006_sentry.html">Sentry</a></li>
+                    <li><a href="../outils/007_rancheros.html">RancherOS</a></li>
+                    <li><a href="../outils/008_jenkins.html">Jenkins</a></li>
+                    <li><a href="../outils/009_documentation.html">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="content-deploiement">
+                <a class="nav-link deploiement" href="../002_deploiement.html">Le déploiement</a>
+                <ul class="list-deploiement">
+                    <li><a href="../deploiement/fun.html">Fun</a></li>
+                    <li><a href="../deploiement/marques_blanches.html">Marques Blanches</a></li>
+                </ul>
+            </div>
+            <div class="content-informations">
+                <a class="nav-link informations" href="../003_informations.html">Informations</a>
+                <ul class="list-informations">
+                    <li><a href="#">Open EDX</a></li>
+                    <li><a href="002_objectif_libre.html">Objectif Libre</a></li>
+                    <li><a href="003_fun_apps.html">Fun Apps</a></li>
+                </ul>
+            </div>
+            <div class="content-cle">
+                <a class="nav-link cle" href="../010_cle.html">Clés publiques</a>
+            </div>
+        </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+      </div>
+
+      <div class="clearer"></div>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, fun-dev.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+Ssh
+===
+
+Prérequis
+*********
+
+Avoir une paire de clé ssh générée à moins que vous soyez experts
+avec les valeurs par défaut.
+
+À faire
+*******
+
+- demander à faire déployer la clé ssh sur le bastion d'abord par un dev
+- ensuite par objectif libre
+
+Pour le bastion votre configuaration ssh est sommairemment::
+
+    Host bastion_dev
+        User cloud
+        hostname 84.39.43.50
+        IdentityFile  ~/.ssh/workid.pub ### mettez VOTRE clé ici pas la mienne
+        SendEnv OS_*
+
+
+Astuces sur utilisées chez fun
+******************************
+
+- Forwarding de port (à traiter)
+
+
+le rebond sélectif
+------------------
+
+Pour certaines adresses avec des jokers on peut forcer le rebond par une gateway
+
+exemple pris de **~/.ssh/config**::
+
+    Host 192.168.10.*
+        User cloud
+        Port 22
+        ProxyCommand ssh bastion_dev -W %h:%p
+
+    Host 192.168.20.*
+        User cloud
+        Port 22
+        ProxyCommand ssh bastion_dev -W %h:%p
